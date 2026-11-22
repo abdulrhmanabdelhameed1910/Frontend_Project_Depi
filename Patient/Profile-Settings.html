@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Settings | MediCare</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Css/Style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ===== Sidebar ===== -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-logo is-blue">+</div>
+          <div>
+            <div class="brand-name">MediCare Patient</div>
+            <div class="brand-sub">Health Portal</div>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="avatar">LA</div>
+          <div>
+            <div class="profile-name">Liam Anderson</div>
+            <div class="profile-meta">ID: #PT-20489 • Age 34</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link" href="Overview.html">Overview</a>
+          <a class="nav-link" href="Book-appointment.html">Book Appointment</a>
+          <a class="nav-link" href="MyAppointments.html">My Appointments</a>
+          <a class="nav-link" href="Medical-History.html">Medical History</a>
+          <a class="nav-link" href="Allergies.html">Allergies</a>
+          <a class="nav-link" href="Medical-Records.html">Medical Records</a>
+          <a class="nav-link" href="Prescriptions.html"
+            >Prescriptions <span class="nav-badge">2</span></a
+          >
+          <a class="nav-link active" href="Profile-Settings.html"
+            >Profile Settings</a
+          >
+        </nav>
+
+        <div class="sidebar-footer">
+          <a class="btn btn-block" href="../Index.html"
+            >Sign Out to Public Site</a
+          >
+        </div>
+      </aside>
+
+      <!-- ===== Main content ===== -->
+      <main class="main">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">Profile &amp; Account Settings</h1>
+            <p class="page-sub">
+              Welcome back, Liam Anderson • Blood Type: O+ • Primary Clinic:
+              Main Pavilion
+            </p>
+          </div>
+          <div class="header-actions">
+            <a class="btn btn-primary" href="Book-appointment.html"
+              >+ New Appointment</a
+            >
+          </div>
+        </header>
+
+        <section class="card form-card">
+          <div class="card-header">
+            <h2 class="card-title">Patient Account &amp; Contact Settings</h2>
+          </div>
+
+          <form class="card-body" id="profileForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="fullName">Full Name</label>
+                <input
+                  class="input"
+                  id="fullName"
+                  name="fullName"
+                  type="text"
+                  value="Liam Anderson"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="age">Age</label>
+                <input
+                  class="input"
+                  id="age"
+                  name="age"
+                  type="number"
+                  min="0"
+                  max="120"
+                  value="34"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone Number</label>
+                <input
+                  class="input"
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  value="+1 (555) 892-3341"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="email">Email Address</label>
+                <input
+                  class="input"
+                  id="email"
+                  name="email"
+                  type="email"
+                  value="liam.anderson@email.com"
+                  required
+                />
+              </div>
+
+              <div class="field full">
+                <label for="address">Home Address</label>
+                <input
+                  class="input"
+                  id="address"
+                  name="address"
+                  type="text"
+                  value="1280 Oakridge Avenue, Suite 14, Boston, MA"
+                />
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary btn-lg" type="submit">
+                Update Profile
+              </button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="../Js/Main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Appointments | MediCare</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Css/Style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ===== Sidebar ===== -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-logo is-blue">+</div>
+          <div>
+            <div class="brand-name">MediCare Patient</div>
+            <div class="brand-sub">Health Portal</div>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="avatar">LA</div>
+          <div>
+            <div class="profile-name">Liam Anderson</div>
+            <div class="profile-meta">ID: #PT-20489 • Age 34</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link" href="Overview.html">Overview</a>
+          <a class="nav-link" href="Book-appointment.html">Book Appointment</a>
+          <a class="nav-link active" href="MyAppointments.html"
+            >My Appointments</a
+          >
+          <a class="nav-link" href="Medical-History.html">Medical History</a>
+          <a class="nav-link" href="Allergies.html">Allergies</a>
+          <a class="nav-link" href="Medical-Records.html">Medical Records</a>
+          <a class="nav-link" href="Prescriptions.html"
+            >Prescriptions <span class="nav-badge">2</span></a
+          >
+          <a class="nav-link" href="Profile-Settings.html">Profile Settings</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <a class="btn btn-block" href="../Index.html"
+            >Sign Out to Public Site</a
+          >
+        </div>
+      </aside>
+
+      <!-- ===== Main content ===== -->
+      <main class="main">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">My Appointments &amp; Schedule</h1>
+            <p class="page-sub">
+              Welcome back, Liam Anderson • Blood Type: O+ • Primary Clinic:
+              Main Pavilion
+            </p>
+          </div>
+          <div class="header-actions">
+            <a class="btn btn-primary" href="Book-appointment.html"
+              >+ New Appointment</a
+            >
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">My Scheduled &amp; Past Appointments</h2>
+              <p class="card-sub">
+                Manage upcoming consultations, reschedule time slots, or review
+                visit status.
+              </p>
+            </div>
+            <a class="btn btn-primary" href="Book-appointment.html"
+              >+ Book New Slot</a
+            >
+          </div>
+
+          <div class="table-wrap">
+            <table class="table" id="appointmentsTable">
+              <thead>
+                <tr>
+                  <th>Doctor &amp; Specialty</th>
+                  <th>Date &amp; Time</th>
+                  <th>Clinic Location</th>
+                  <th>Status</th>
+                  <th class="col-actions">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="cell-strong">Dr. Elena Harrison, MD, FACC</div>
+                    <div class="cell-sub">Cardiology</div>
+                  </td>
+                  <td>
+                    <div class="cell-strong">Nov 20, 2026</div>
+                    <div class="cell-muted">10:00 AM</div>
+                  </td>
+                  <td>Room 304, Main Medical Pavilion</td>
+                  <td>
+                    <span class="badge badge-confirmed js-status"
+                      >Confirmed</span
+                    >
+                  </td>
+                  <td class="col-actions">
+                    <a class="btn" href="Book-appointment.html">Reschedule</a>
+                    <button
+                      class="btn btn-danger-outline js-cancel"
+                      type="button"
+                    >
+                      Cancel
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="cell-strong">Dr. Nadia Al-Mansoor, MD</div>
+                    <div class="cell-sub">Dermatology</div>
+                  </td>
+                  <td>
+                    <div class="cell-strong">Nov 24, 2026</div>
+                    <div class="cell-muted">02:30 PM</div>
+                  </td>
+                  <td>Suite 210, North Wing</td>
+                  <td>
+                    <span class="badge badge-confirmed js-status"
+                      >Confirmed</span
+                    >
+                  </td>
+                  <td class="col-actions">
+                    <a class="btn" href="Book-appointment.html">Reschedule</a>
+                    <button
+                      class="btn btn-danger-outline js-cancel"
+                      type="button"
+                    >
+                      Cancel
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="cell-strong">Dr. Samuel Okafor, MD, FACP</div>
+                    <div class="cell-sub">Internal Medicine</div>
+                  </td>
+                  <td>
+                    <div class="cell-strong">Sep 14, 2026</div>
+                    <div class="cell-muted">09:00 AM</div>
+                  </td>
+                  <td>Main Pavilion, Suite 118</td>
+                  <td>
+                    <span class="badge badge-completed js-status"
+                      >Completed</span
+                    >
+                  </td>
+                  <td class="col-actions">
+                    <span class="cell-muted">Archived</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../Js/Main.js"></script>
+  </body>
+</html>

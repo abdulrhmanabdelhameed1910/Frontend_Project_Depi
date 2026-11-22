@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prescriptions | MediCare</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Css/Style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ===== Sidebar ===== -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-logo is-blue">+</div>
+          <div>
+            <div class="brand-name">MediCare Patient</div>
+            <div class="brand-sub">Health Portal</div>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="avatar">LA</div>
+          <div>
+            <div class="profile-name">Liam Anderson</div>
+            <div class="profile-meta">ID: #PT-20489 • Age 34</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link" href="Overview.html">Overview</a>
+          <a class="nav-link" href="Book-appointment.html">Book Appointment</a>
+          <a class="nav-link" href="MyAppointments.html">My Appointments</a>
+          <a class="nav-link" href="Medical-History.html">Medical History</a>
+          <a class="nav-link" href="Allergies.html">Allergies</a>
+          <a class="nav-link" href="Medical-Records.html">Medical Records</a>
+          <a class="nav-link active" href="Prescriptions.html"
+            >Prescriptions <span class="nav-badge">2</span></a
+          >
+          <a class="nav-link" href="Profile-Settings.html">Profile Settings</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <a class="btn btn-block" href="../Index.html"
+            >Sign Out to Public Site</a
+          >
+        </div>
+      </aside>
+
+      <!-- ===== Main content ===== -->
+      <main class="main">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">Digital Prescriptions</h1>
+            <p class="page-sub">
+              Welcome back, Liam Anderson • Blood Type: O+ • Primary Clinic:
+              Main Pavilion
+            </p>
+          </div>
+          <div class="header-actions">
+            <a class="btn btn-primary" href="Book-appointment.html"
+              >+ New Appointment</a
+            >
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Digital Prescriptions</h2>
+              <p class="card-sub">
+                Official physician-issued medication orders with printable
+                pharmacy-ready PDF sheets.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="rx-grid">
+          <!-- Prescription 1 -->
+          <article class="card rx-card">
+            <div class="card-body">
+              <div class="rx-top">
+                <div>
+                  <div class="rx-meta">RX-2026-44 • Internal Medicine</div>
+                  <h3 class="rx-doctor">Dr. Samuel Okafor, MD, FACP</h3>
+                </div>
+                <span class="rx-date">Sep 14, 2026</span>
+              </div>
+
+              <div class="rx-items">
+                <div class="rx-item">
+                  <div class="rx-item-top">
+                    <span class="cell-strong">℞ Lisinopril (10 mg)</span>
+                    <span class="rx-duration">90 Days</span>
+                  </div>
+                  <p class="cell-muted">
+                    Once daily (Morning) — Take with water; monitor blood
+                    pressure weekly.
+                  </p>
+                </div>
+                <div class="rx-item">
+                  <div class="rx-item-top">
+                    <span class="cell-strong"
+                      >℞ Cetirizine Hydrochloride (10 mg)</span
+                    >
+                    <span class="rx-duration">30 Days</span>
+                  </div>
+                  <p class="cell-muted">
+                    Once daily as needed — Take in the evening if seasonal
+                    allergy symptoms occur.
+                  </p>
+                </div>
+              </div>
+
+              <div class="rx-actions">
+                <button class="btn btn-primary btn-lg" type="button">
+                  Download Official PDF
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Prescription 2 -->
+          <article class="card rx-card">
+            <div class="card-body">
+              <div class="rx-top">
+                <div>
+                  <div class="rx-meta">RX-2026-19 • Cardiology</div>
+                  <h3 class="rx-doctor">Dr. Elena Harrison, MD, FACC</h3>
+                </div>
+                <span class="rx-date">Jun 02, 2026</span>
+              </div>
+
+              <div class="rx-items">
+                <div class="rx-item">
+                  <div class="rx-item-top">
+                    <span class="cell-strong"
+                      >℞ Omega-3 Acid Ethyl Esters (1000 mg)</span
+                    >
+                    <span class="rx-duration">60 Days</span>
+                  </div>
+                  <p class="cell-muted">
+                    Twice daily with meals — Swallow capsule whole with food.
+                  </p>
+                </div>
+              </div>
+
+              <div class="rx-actions">
+                <button class="btn btn-primary btn-lg" type="button">
+                  Download Official PDF
+                </button>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="../Js/Main.js"></script>
+  </body>
+</html>

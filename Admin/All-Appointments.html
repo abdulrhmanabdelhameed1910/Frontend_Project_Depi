@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Appointments | MediCare Admin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Css/Style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ===== Sidebar ===== -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-logo">+</div>
+          <div>
+            <div class="brand-name">MediCare Admin</div>
+            <div class="brand-sub">Operations Console</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link" href="Analytics.html">Analytics &amp; Reports</a>
+          <a class="nav-link" href="Doctor.html"
+            >Doctor Management <span class="nav-badge is-amber">2</span></a
+          >
+          <a class="nav-link" href="Patient.html">Patient Management</a>
+          <a class="nav-link" href="Specialty.html">Specialty Management</a>
+          <a class="nav-link active" href="All-Appointments.html"
+            >All Appointments</a
+          >
+          <a class="nav-link" href="Clinic-Settings.html">Clinic Settings</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <a class="btn btn-block" href="../Index.html">Exit Admin Console</a>
+        </div>
+      </aside>
+
+      <!-- ===== Main content ===== -->
+      <main class="main">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">Clinic-Wide Appointment Ledger</h1>
+            <p class="page-sub">
+              MediCare Clinic Network • Real-time performance, revenue &amp;
+              medical staffing oversight
+            </p>
+          </div>
+          <div class="header-actions">
+            <select class="select" aria-label="Reporting period">
+              <option>Full Year 2026</option>
+            </select>
+            <button class="btn" type="button" data-export="pdf">
+              Export PDF
+            </button>
+            <button class="btn btn-primary" type="button" data-export="excel">
+              Export Excel
+            </button>
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Clinic-Wide Appointment Ledger</h2>
+              <p class="card-sub">
+                Filter and audit all patient-doctor consultations across
+                departments.
+              </p>
+            </div>
+            <div class="table-filters">
+              <input
+                class="input"
+                id="appointmentSearch"
+                type="text"
+                placeholder="Filter patient or doctor..."
+              />
+              <select
+                class="select"
+                id="statusFilter"
+                aria-label="Filter by status"
+              >
+                <option value="all">All Statuses</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="pending">Pending</option>
+                <option value="completed">Completed</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Appt ID</th>
+                  <th>Patient</th>
+                  <th>Doctor &amp; Specialty</th>
+                  <th>Date &amp; Time</th>
+                  <th>Status</th>
+                  <th class="col-actions">Manage</th>
+                </tr>
+              </thead>
+              <tbody id="appointmentRows">
+                <tr data-status="confirmed">
+                  <td class="cell-muted">APT-8841</td>
+                  <td class="cell-strong">Liam Anderson</td>
+                  <td>
+                    <div class="cell-strong">Dr. Elena Harrison, MD, FACC</div>
+                    <div class="cell-sub">Cardiology</div>
+                  </td>
+                  <td>Nov 20, 2026 • 10:00 AM</td>
+                  <td><span class="badge badge-confirmed">Confirmed</span></td>
+                  <td class="col-actions">
+                    <button class="btn btn-sm" type="button">Audit</button>
+                  </td>
+                </tr>
+                <tr data-status="confirmed">
+                  <td class="cell-muted">APT-8842</td>
+                  <td class="cell-strong">Liam Anderson</td>
+                  <td>
+                    <div class="cell-strong">Dr. Nadia Al-Mansoor, MD</div>
+                    <div class="cell-sub">Dermatology</div>
+                  </td>
+                  <td>Nov 24, 2026 • 02:30 PM</td>
+                  <td><span class="badge badge-confirmed">Confirmed</span></td>
+                  <td class="col-actions">
+                    <button class="btn btn-sm" type="button">Audit</button>
+                  </td>
+                </tr>
+                <tr data-status="pending">
+                  <td class="cell-muted">APT-8845</td>
+                  <td class="cell-strong">Chloe Bennett</td>
+                  <td>
+                    <div class="cell-strong">Dr. Elena Harrison, MD, FACC</div>
+                    <div class="cell-sub">Cardiology</div>
+                  </td>
+                  <td>Nov 20, 2026 • 11:30 AM</td>
+                  <td><span class="badge badge-pending">Pending</span></td>
+                  <td class="col-actions">
+                    <button class="btn btn-sm" type="button">Audit</button>
+                  </td>
+                </tr>
+                <tr data-status="pending">
+                  <td class="cell-muted">APT-8849</td>
+                  <td class="cell-strong">Marcus Vance</td>
+                  <td>
+                    <div class="cell-strong">Dr. Elena Harrison, MD, FACC</div>
+                    <div class="cell-sub">Cardiology</div>
+                  </td>
+                  <td>Nov 21, 2026 • 09:30 AM</td>
+                  <td><span class="badge badge-pending">Pending</span></td>
+                  <td class="col-actions">
+                    <button class="btn btn-sm" type="button">Audit</button>
+                  </td>
+                </tr>
+                <tr data-status="completed">
+                  <td class="cell-muted">APT-8710</td>
+                  <td class="cell-strong">Liam Anderson</td>
+                  <td>
+                    <div class="cell-strong">Dr. Samuel Okafor, MD, FACP</div>
+                    <div class="cell-sub">Internal Medicine</div>
+                  </td>
+                  <td>Sep 14, 2026 • 09:00 AM</td>
+                  <td><span class="badge badge-completed">Completed</span></td>
+                  <td class="col-actions">
+                    <button class="btn btn-sm" type="button">Audit</button>
+                  </td>
+                </tr>
+                <tr id="appointmentEmpty" class="hidden">
+                  <td colspan="6" class="cell-muted">
+                    No appointments match your filters.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../Js/Main.js"></script>
+  </body>
+</html>

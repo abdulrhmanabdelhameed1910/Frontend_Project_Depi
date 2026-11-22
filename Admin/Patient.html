@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Management | MediCare Admin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Css/Style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ===== Sidebar ===== -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-logo">+</div>
+          <div>
+            <div class="brand-name">MediCare Admin</div>
+            <div class="brand-sub">Operations Console</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link" href="Analytics.html">Analytics &amp; Reports</a>
+          <a class="nav-link" href="Doctor.html"
+            >Doctor Management <span class="nav-badge is-amber">2</span></a
+          >
+          <a class="nav-link active" href="Patient.html">Patient Management</a>
+          <a class="nav-link" href="Specialty.html">Specialty Management</a>
+          <a class="nav-link" href="All-Appointments.html">All Appointments</a>
+          <a class="nav-link" href="Clinic-Settings.html">Clinic Settings</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <a class="btn btn-block" href="../Index.html">Exit Admin Console</a>
+        </div>
+      </aside>
+
+      <!-- ===== Main content ===== -->
+      <main class="main">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">Outpatient Registry Management</h1>
+            <p class="page-sub">
+              MediCare Clinic Network • Real-time performance, revenue &amp;
+              medical staffing oversight
+            </p>
+          </div>
+          <div class="header-actions">
+            <select class="select" aria-label="Reporting period">
+              <option>Full Year 2026</option>
+            </select>
+            <button class="btn" type="button" data-export="pdf">
+              Export PDF
+            </button>
+            <button class="btn btn-primary" type="button" data-export="excel">
+              Export Excel
+            </button>
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Registered Patient Directory</h2>
+              <p class="card-sub">
+                Search outpatient records and inspect demographic profiles.
+              </p>
+            </div>
+            <input
+              class="input table-search"
+              id="patientSearch"
+              type="text"
+              placeholder="Search patient name or ID..."
+            />
+          </div>
+
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Patient ID &amp; Name</th>
+                  <th>Age / Gender</th>
+                  <th>Phone</th>
+                  <th>Recorded Allergies</th>
+                  <th class="col-actions">Profile</th>
+                </tr>
+              </thead>
+              <tbody id="patientRows">
+                <tr>
+                  <td>
+                    <div class="cell-strong">Liam Anderson</div>
+                    <div class="cell-muted">PT-20489</div>
+                  </td>
+                  <td>34 yrs • Male</td>
+                  <td>+1 (555) 892-3341</td>
+                  <td class="allergy-text">Penicillin, Peanuts, Dust Mites</td>
+                  <td class="col-actions">
+                    <button class="btn btn-sm" type="button">
+                      View Profile
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="cell-strong">Sophia Martinez</div>
+                    <div class="cell-muted">PT-20490</div>
+                  </td>
+                  <td>29 yrs • Female</td>
+                  <td>+1 (555) 441-9021</td>
+                  <td class="allergy-text">Latex</td>
+                  <td class="col-actions">
+                    <button class="btn btn-sm" type="button">
+                      View Profile
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="cell-strong">Marcus Vance</div>
+                    <div class="cell-muted">PT-20491</div>
+                  </td>
+                  <td>47 yrs • Male</td>
+                  <td>+1 (555) 773-1209</td>
+                  <td class="allergy-text">None Recorded</td>
+                  <td class="col-actions">
+                    <button class="btn btn-sm" type="button">
+                      View Profile
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="cell-strong">Chloe Bennett</div>
+                    <div class="cell-muted">PT-20492</div>
+                  </td>
+                  <td>41 yrs • Female</td>
+                  <td>+1 (555) 619-4480</td>
+                  <td class="allergy-text">Pollen, Aspirin</td>
+                  <td class="col-actions">
+                    <button class="btn btn-sm" type="button">
+                      View Profile
+                    </button>
+                  </td>
+                </tr>
+                <tr id="patientEmpty" class="hidden">
+                  <td colspan="5" class="cell-muted">
+                    No patients match your search.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../Js/Main.js"></script>
+  </body>
+</html>

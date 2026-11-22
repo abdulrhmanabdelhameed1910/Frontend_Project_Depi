@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical History | MediCare</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Css/Style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ===== Sidebar ===== -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-logo is-blue">+</div>
+          <div>
+            <div class="brand-name">MediCare Patient</div>
+            <div class="brand-sub">Health Portal</div>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="avatar">LA</div>
+          <div>
+            <div class="profile-name">Liam Anderson</div>
+            <div class="profile-meta">ID: #PT-20489 • Age 34</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link" href="Overview.html">Overview</a>
+          <a class="nav-link" href="Book-appointment.html">Book Appointment</a>
+          <a class="nav-link" href="MyAppointments.html">My Appointments</a>
+          <a class="nav-link active" href="Medical-History.html"
+            >Medical History</a
+          >
+          <a class="nav-link" href="Allergies.html">Allergies</a>
+          <a class="nav-link" href="Medical-Records.html">Medical Records</a>
+          <a class="nav-link" href="Prescriptions.html"
+            >Prescriptions <span class="nav-badge">2</span></a
+          >
+          <a class="nav-link" href="Profile-Settings.html">Profile Settings</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <a class="btn btn-block" href="../Index.html"
+            >Sign Out to Public Site</a
+          >
+        </div>
+      </aside>
+
+      <!-- ===== Main content ===== -->
+      <main class="main">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">Medical History Record</h1>
+            <p class="page-sub">
+              Welcome back, Liam Anderson • Blood Type: O+ • Primary Clinic:
+              Main Pavilion
+            </p>
+          </div>
+          <div class="header-actions">
+            <a class="btn btn-primary" href="Book-appointment.html"
+              >+ New Appointment</a
+            >
+          </div>
+        </header>
+
+        <section class="card form-card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Comprehensive Medical History</h2>
+              <p class="card-sub">
+                This information is shared securely with your consulting
+                physicians prior to examination.
+              </p>
+            </div>
+          </div>
+
+          <form class="card-body" id="historyForm">
+            <div class="form-grid">
+              <div class="field full">
+                <label for="conditions"
+                  >Existing Diseases &amp; Chronic Conditions</label
+                >
+                <textarea
+                  class="textarea"
+                  id="conditions"
+                  name="conditions"
+                  rows="2"
+                >
+Mild Essential Hypertension (diagnosed 2022), Seasonal Allergic Rhinitis</textarea
+                >
+              </div>
+
+              <div class="field full">
+                <label for="medications">Current Regular Medications</label>
+                <textarea
+                  class="textarea"
+                  id="medications"
+                  name="medications"
+                  rows="2"
+                >
+Lisinopril 10mg once daily (morning), Vitamin D3 2000 IU daily</textarea
+                >
+              </div>
+
+              <div class="field full">
+                <label for="surgeries"
+                  >Previous Surgeries &amp; Hospitalizations</label
+                >
+                <textarea
+                  class="textarea"
+                  id="surgeries"
+                  name="surgeries"
+                  rows="2"
+                >
+Laparoscopic Appendectomy (2016) — uncomplicated recovery</textarea
+                >
+              </div>
+
+              <div class="field">
+                <label for="notes">Relevant Clinical &amp; Family Notes</label>
+                <textarea class="textarea" id="notes" name="notes" rows="3">
+Paternal history of Type 2 Diabetes. Non-smoker, regular cardiovascular exercise 3x/week.</textarea
+                >
+              </div>
+
+              <div class="field">
+                <label for="other">Other Medical Conditions</label>
+                <textarea class="textarea" id="other" name="other" rows="3">
+Occasional tension headaches during prolonged screen exposure.</textarea
+                >
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary btn-lg" type="submit">
+                Save Medical History to EHR
+              </button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="../Js/Main.js"></script>
+  </body>
+</html>

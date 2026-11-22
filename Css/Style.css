@@ -1,0 +1,1426 @@
+/* ==========================================================
+   MediCare – Base Stylesheet (Patient Portal + Admin Console)
+   Font: Inter (add the Google Fonts <link> in every HTML <head>)
+   ========================================================== */
+
+/* ---------- 1. Design tokens ---------- */
+:root {
+    --blue: #4a90d9;
+    --blue-dark: #3a7bc0;
+    --sky: #b9ddf5;
+    --cyan: #61c4d8;
+    --navy: #1d3048;
+    --bg: #f3f8fc;
+    --white: #ffffff;
+
+    --text: #1d3048;
+    --text-muted: #5b6b7c;
+    --border: #e3ecf4;
+    --sky-soft: #eaf4fb;
+
+    --green: #0f8a5f;
+    --green-bg: #e6f6ef;
+    --amber: #9a5b00;
+    --amber-bg: #fff8e5;
+    --amber-border: #f3e2b3;
+    --red: #d93025;
+    --red-bg: #fdecea;
+    --grey: #6b7a8a;
+    --grey-bg: #eef2f6;
+
+    --radius-sm: 8px;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --sidebar-w: 280px;
+    --shadow: 0 1px 3px rgba(29, 48, 72, 0.06);
+}
+
+/* ---------- 2. Reset & base ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg);
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+}
+
+/* ---------- 3. App layout ---------- */
+.app {
+    display: grid;
+    grid-template-columns: var(--sidebar-w) 1fr;
+    min-height: 100vh;
+}
+
+.main {
+    padding: 28px 32px 40px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ---------- 4. Sidebar ---------- */
+.sidebar {
+    background: var(--white);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 22px 18px;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--navy);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+}
+
+.brand-logo.is-blue {
+    background: var(--blue);
+}
+
+.brand-name {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.brand-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* Patient mini-profile card (Patient Portal only) */
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 14px 8px;
+    padding: 14px;
+    background: var(--sky-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.profile-name {
+    font-weight: 600;
+}
+
+.profile-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 14px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 14px;
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    font-weight: 500;
+    border-right: 3px solid transparent;
+}
+
+.nav-link:hover {
+    background: var(--bg);
+    text-decoration: none;
+}
+
+.nav-link.active {
+    background: var(--sky-soft);
+    color: var(--blue);
+    font-weight: 600;
+    border-right-color: var(--blue);
+}
+
+.nav-badge {
+    min-width: 24px;
+    height: 24px;
+    padding: 0 7px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    background: var(--sky-soft);
+    color: var(--blue);
+}
+
+.nav-badge.is-amber {
+    background: #fdf0c8;
+    color: var(--amber);
+}
+
+.sidebar-footer {
+    padding: 16px 14px;
+    border-top: 1px solid var(--border);
+}
+
+/* ---------- 5. Page header ---------- */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.page-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* ---------- 6. Buttons ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 9px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--text);
+    font-weight: 600;
+    font-size: 13px;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.btn:hover {
+    background: var(--bg);
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--blue-dark);
+}
+
+.btn-success {
+    background: var(--green);
+    border-color: var(--green);
+    color: var(--white);
+}
+
+.btn-success:hover {
+    background: #0b744f;
+}
+
+.btn-danger-outline {
+    color: var(--red);
+    border-color: #f5c6c2;
+}
+
+.btn-danger-outline:hover {
+    background: var(--red-bg);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-lg {
+    padding: 13px 22px;
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+/* ---------- 7. Cards ---------- */
+.card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 24px;
+}
+
+.card-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* Stat cards row */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 20px;
+}
+
+.stat {
+    padding: 22px 24px;
+}
+
+.stat-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.stat-value {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 6px 0 4px;
+}
+
+.stat-value.is-blue {
+    color: var(--blue);
+}
+
+.stat-value.is-amber {
+    color: #d97706;
+}
+
+.stat-note {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.stat-note.is-green {
+    color: var(--green);
+}
+
+.stat-note.is-blue {
+    color: var(--blue);
+}
+
+.stat-note.is-amber {
+    color: var(--amber);
+}
+
+/* ---------- 8. Tables ---------- */
+.table-wrap {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+    text-align: left;
+    padding: 14px 24px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: #f6fafd;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+.table td {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.table .col-actions {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.table .col-actions .btn+.btn {
+    margin-left: 8px;
+}
+
+.cell-strong {
+    font-weight: 600;
+}
+
+.cell-sub {
+    font-size: 12px;
+    color: var(--blue);
+}
+
+.cell-muted {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ---------- 9. Badges ---------- */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    background: var(--grey-bg);
+    color: var(--grey);
+}
+
+.badge-confirmed,
+.badge-active {
+    background: var(--green-bg);
+    color: var(--green);
+}
+
+.badge-pending {
+    background: #fdf0c8;
+    color: var(--amber);
+}
+
+.badge-completed {
+    background: var(--sky-soft);
+    color: var(--blue);
+    border: 1px solid var(--sky);
+}
+
+.badge-cancelled {
+    background: var(--grey-bg);
+    color: var(--grey);
+}
+
+.badge-specialty {
+    background: var(--sky-soft);
+    color: var(--blue);
+}
+
+/* ---------- 10. Forms ---------- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 20px;
+}
+
+.form-grid .full {
+    grid-column: 1 / -1;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.input,
+.select,
+.textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: #9aa8b6;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.15);
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 84px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 22px;
+}
+
+.form-card {
+    max-width: 860px;
+}
+
+/* ---------- 11. Alerts, chips & small helpers ---------- */
+.alert-warning {
+    background: var(--amber-bg);
+    border: 1px solid var(--amber-border);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    color: var(--amber);
+}
+
+.alert-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.chip:hover {
+    border-color: var(--blue);
+}
+
+.chip.selected {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--white);
+}
+
+.divider {
+    height: 1px;
+    background: var(--border);
+    border: 0;
+    margin: 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ---------- 12. Responsive ---------- */
+@media (max-width: 1024px) {
+    .app {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+        height: auto;
+    }
+
+    .nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .main {
+        padding: 20px 16px 32px;
+    }
+}
+
+@media (max-width: 640px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-title {
+        font-size: 20px;
+    }
+}
+
+/* ---------- Overview page ---------- */
+.overview-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.appt-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+.appt-row:last-child {
+    border-bottom: none;
+}
+
+.appt-row .badge-specialty {
+    margin-left: 8px;
+}
+
+.quick-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.action-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 16px;
+    background: var(--sky-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+}
+
+.action-tile:hover {
+    border-color: var(--blue);
+    text-decoration: none;
+}
+
+.action-title {
+    font-weight: 600;
+    color: var(--blue);
+}
+
+.action-title.is-dark {
+    color: var(--text);
+}
+
+@media (max-width: 1024px) {
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* ---------- Book Appointment page ---------- */
+.booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin: 16px 0;
+}
+
+.filters .select {
+    max-width: 190px;
+}
+
+.doctor-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 470px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.doctor-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 16px;
+    text-align: left;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.doctor-item:hover {
+    border-color: var(--sky);
+}
+
+.doctor-item.selected {
+    background: var(--sky-soft);
+    border-color: var(--blue);
+    box-shadow: 0 0 0 1px var(--blue);
+}
+
+.doctor-fee {
+    font-weight: 600;
+    color: var(--blue);
+}
+
+.booking-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.selected-line {
+    font-size: 13px;
+    color: var(--blue);
+    margin-top: 2px;
+}
+
+.pill {
+    padding: 6px 14px;
+    background: var(--grey-bg);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.section-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 20px 0 10px;
+}
+
+.slots-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.slots-label .hint {
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.date-list {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.date-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 10px 4px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+}
+
+.date-tile:hover {
+    border-color: var(--blue);
+}
+
+.date-day {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.date-num {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.date-tile.selected {
+    background: var(--blue);
+    border-color: var(--blue);
+}
+
+.date-tile.selected .date-day,
+.date-tile.selected .date-num {
+    color: var(--white);
+}
+
+.slot-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.slot {
+    padding: 14px 8px;
+    font-weight: 600;
+    text-align: center;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+}
+
+.slot:hover {
+    border-color: var(--blue);
+}
+
+.slot.selected {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--white);
+}
+
+.slot.conflict {
+    background: var(--red-bg);
+    border-color: #f5c6c2;
+    color: var(--red);
+    cursor: not-allowed;
+}
+
+.slot-flag {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+}
+
+.summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    padding: 18px 20px;
+    background: var(--sky-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.summary-text {
+    font-weight: 600;
+}
+
+.summary.is-done {
+    background: var(--green-bg);
+    border-color: #bfe6d4;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 1024px) {
+    .booking-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .slot-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .date-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+
+
+
+/* ---------- Allergies page ---------- */
+.allergy-search {
+    max-width: 340px;
+}
+
+.allergy-active {
+    margin-bottom: 20px;
+}
+
+.chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.allergy-active .chip-list {
+    margin-top: 12px;
+}
+
+.chip-active {
+    background: var(--white);
+    border-color: var(--amber-border);
+    color: var(--amber);
+    font-weight: 600;
+}
+
+.chip-remove {
+    border: 0;
+    background: none;
+    padding: 0 2px;
+    font-size: 16px;
+    line-height: 1;
+    color: var(--amber);
+}
+
+.chip-remove:hover {
+    color: var(--red);
+}
+
+.allergy-categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.allergy-box {
+    padding: 16px 18px;
+    background: #f9fcfe;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.allergy-box-title {
+    margin-bottom: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--navy);
+}
+
+.allergen {
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.allergy-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+}
+
+.custom-add {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+    max-width: 520px;
+}
+
+@media (max-width: 1024px) {
+    .allergy-categories {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+/* ---------- Medical Records page ---------- */
+.record-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.record-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 10px 0 2px;
+}
+
+.record-doctor {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.record-doctor strong {
+    color: var(--text);
+}
+
+.record-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 16px;
+    margin: 18px 0;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+}
+
+.record-box {
+    padding: 14px 16px;
+    background: #f9fcfe;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.record-box-title {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.attachments {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.attachment {
+    padding: 6px 12px;
+    font-size: 13px;
+    background: var(--white);
+    border: 1px solid var(--sky);
+    border-radius: var(--radius-sm);
+}
+
+.attachment:hover {
+    background: var(--sky-soft);
+    text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+    .record-boxes {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+/* ---------- Prescriptions page ---------- */
+.rx-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+}
+
+.rx-card .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.rx-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.rx-meta {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--blue);
+}
+
+.rx-doctor {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+.rx-date {
+    font-size: 13px;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.rx-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 16px 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.rx-item {
+    padding: 12px 16px;
+    background: #f9fcfe;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.rx-item-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.rx-duration {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--blue);
+    white-space: nowrap;
+}
+
+.rx-actions {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 1024px) {
+    .rx-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+/* ---------- Admin: shared ---------- */
+.header-actions .select {
+    width: auto;
+    padding: 9px 14px;
+}
+
+.num-right {
+    text-align: right !important;
+}
+
+.cell-money {
+    font-weight: 600;
+    color: var(--blue);
+}
+
+/* ---------- Admin: Analytics page ---------- */
+.charts-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+.charts-bottom {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.chart-wrap {
+    position: relative;
+    height: 320px;
+    margin-top: 18px;
+}
+
+.chart-short {
+    height: 230px;
+}
+
+@media (max-width: 1024px) {
+
+    .charts-top,
+    .charts-bottom {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- Print (Export PDF) ---------- */
+@media print {
+
+    .sidebar,
+    .header-actions {
+        display: none !important;
+    }
+
+    .app {
+        display: block;
+    }
+
+    .main {
+        padding: 0;
+    }
+
+    .card {
+        box-shadow: none;
+        break-inside: avoid;
+    }
+}
+
+
+
+
+
+/* ---------- Admin: Doctor Management page ---------- */
+.card-header.is-amber {
+    background: var(--amber-bg);
+    border-bottom-color: var(--amber-border);
+}
+
+.pending-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+.pending-row:last-child {
+    border-bottom: none;
+}
+
+.pending-row .badge-specialty {
+    margin-left: 8px;
+}
+
+.pending-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.inspect-link {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.cell-link {
+    color: var(--blue);
+    font-weight: 500;
+}
+
+.empty-note {
+    padding: 24px;
+    color: var(--text-muted);
+}
+
+
+
+
+/* ---------- Admin: Patient Management page ---------- */
+.table-search {
+    max-width: 320px;
+}
+
+.allergy-text {
+    font-weight: 600;
+    color: var(--amber);
+}
+
+
+
+/* ---------- Admin: Specialty Management page ---------- */
+.specialty-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cell-desc {
+    color: var(--text-muted);
+}
+
+.doctor-count {
+    font-weight: 600;
+    color: var(--blue);
+}
+
+.form-error {
+    min-height: 18px;
+    font-size: 13px;
+    color: var(--red);
+}
+
+@media (max-width: 1024px) {
+    .specialty-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+/* ---------- Admin: All Appointments page ---------- */
+.table-filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.table-filters .input {
+    width: 240px;
+}
+
+.table-filters .select {
+    width: auto;
+}
+
+
+
+/* ---------- Entry page (Index.html) ---------- */
+.entry-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.entry-card {
+    width: 100%;
+    max-width: 720px;
+}
+
+.entry-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.entry-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.entry-tile {
+    padding: 22px;
+    gap: 6px;
+}
+
+@media (max-width: 640px) {
+    .entry-grid {
+        grid-template-columns: 1fr;
+    }
+}

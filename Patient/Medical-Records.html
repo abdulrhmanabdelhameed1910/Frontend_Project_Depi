@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Records | MediCare</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Css/Style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ===== Sidebar ===== -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-logo is-blue">+</div>
+          <div>
+            <div class="brand-name">MediCare Patient</div>
+            <div class="brand-sub">Health Portal</div>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="avatar">LA</div>
+          <div>
+            <div class="profile-name">Liam Anderson</div>
+            <div class="profile-meta">ID: #PT-20489 • Age 34</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link" href="Overview.html">Overview</a>
+          <a class="nav-link" href="Book-appointment.html">Book Appointment</a>
+          <a class="nav-link" href="MyAppointments.html">My Appointments</a>
+          <a class="nav-link" href="Medical-History.html">Medical History</a>
+          <a class="nav-link" href="Allergies.html">Allergies</a>
+          <a class="nav-link active" href="Medical-Records.html"
+            >Medical Records</a
+          >
+          <a class="nav-link" href="Prescriptions.html"
+            >Prescriptions <span class="nav-badge">2</span></a
+          >
+          <a class="nav-link" href="Profile-Settings.html">Profile Settings</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <a class="btn btn-block" href="../Index.html"
+            >Sign Out to Public Site</a
+          >
+        </div>
+      </aside>
+
+      <!-- ===== Main content ===== -->
+      <main class="main">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">Electronic Medical Records</h1>
+            <p class="page-sub">
+              Welcome back, Liam Anderson • Blood Type: O+ • Primary Clinic:
+              Main Pavilion
+            </p>
+          </div>
+          <div class="header-actions">
+            <a class="btn btn-primary" href="Book-appointment.html"
+              >+ New Appointment</a
+            >
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">
+                Electronic Medical Records (Visit History)
+              </h2>
+              <p class="card-sub">
+                Complete diagnostic summaries, clinical examination notes, and
+                attached lab/imaging files.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Visit 1 -->
+        <article class="card">
+          <div class="card-body">
+            <div class="record-top">
+              <div>
+                <span class="badge badge-specialty">Internal Medicine</span>
+                <h3 class="record-title">
+                  Annual Comprehensive Metabolic &amp; Hypertension Review
+                </h3>
+                <p class="record-doctor">
+                  Attending Physician:
+                  <strong>Dr. Samuel Okafor, MD, FACP</strong>
+                </p>
+              </div>
+              <span class="pill cell-strong">Sep 14, 2026</span>
+            </div>
+
+            <div class="record-boxes">
+              <div class="record-box">
+                <div class="record-box-title">Recorded Symptoms</div>
+                <p class="cell-muted">
+                  Asymptomatic routine follow-up; mild seasonal nasal
+                  congestion.
+                </p>
+              </div>
+              <div class="record-box">
+                <div class="record-box-title">Doctor Examination Notes</div>
+                <p class="cell-muted">
+                  Blood pressure 126/80 mmHg. Comprehensive metabolic panel and
+                  HbA1c within normal reference limits.
+                </p>
+              </div>
+            </div>
+
+            <div class="attachments">
+              <strong>Attachments:</strong>
+              <a class="attachment" href="#"
+                >↓ Comprehensive_Metabolic_Panel_Sep2026.pdf</a
+              >
+              <a class="attachment" href="#">↓ Lipid_Profile_Lab.pdf</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Visit 2 -->
+        <article class="card">
+          <div class="card-body">
+            <div class="record-top">
+              <div>
+                <span class="badge badge-specialty">Cardiology</span>
+                <h3 class="record-title">
+                  Essential Hypertension (Controlled)
+                </h3>
+                <p class="record-doctor">
+                  Attending Physician:
+                  <strong>Dr. Elena Harrison, MD, FACC</strong>
+                </p>
+              </div>
+              <span class="pill cell-strong">Jun 02, 2026</span>
+            </div>
+
+            <div class="record-boxes">
+              <div class="record-box">
+                <div class="record-box-title">Recorded Symptoms</div>
+                <p class="cell-muted">
+                  Routine cardiovascular evaluation prior to summer marathon
+                  training.
+                </p>
+              </div>
+              <div class="record-box">
+                <div class="record-box-title">Doctor Examination Notes</div>
+                <p class="cell-muted">
+                  12-lead ECG normal sinus rhythm. Echocardiogram demonstrates
+                  preserved LVEF (62%).
+                </p>
+              </div>
+            </div>
+
+            <div class="attachments">
+              <strong>Attachments:</strong>
+              <a class="attachment" href="#">↓ 12_Lead_ECG_Report.pdf</a>
+              <a class="attachment" href="#">↓ Chest_XRay_Clear.png</a>
+            </div>
+          </div>
+        </article>
+      </main>
+    </div>
+
+    <script src="../Js/Main.js"></script>
+  </body>
+</html>

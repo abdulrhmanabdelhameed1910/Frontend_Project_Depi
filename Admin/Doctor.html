@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Management | MediCare Admin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Css/Style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ===== Sidebar ===== -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-logo">+</div>
+          <div>
+            <div class="brand-name">MediCare Admin</div>
+            <div class="brand-sub">Operations Console</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link" href="Analytics.html">Analytics &amp; Reports</a>
+          <a class="nav-link active" href="Doctor.html"
+            >Doctor Management
+            <span class="nav-badge is-amber" id="pendingBadge">2</span></a
+          >
+          <a class="nav-link" href="Patient.html">Patient Management</a>
+          <a class="nav-link" href="Specialty.html">Specialty Management</a>
+          <a class="nav-link" href="All-Appointments.html">All Appointments</a>
+          <a class="nav-link" href="Clinic-Settings.html">Clinic Settings</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <a class="btn btn-block" href="../Index.html">Exit Admin Console</a>
+        </div>
+      </aside>
+
+      <!-- ===== Main content ===== -->
+      <main class="main">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">
+              Doctor Credentialing &amp; Staff Management
+            </h1>
+            <p class="page-sub">
+              MediCare Clinic Network • Real-time performance, revenue &amp;
+              medical staffing oversight
+            </p>
+          </div>
+          <div class="header-actions">
+            <select class="select" aria-label="Reporting period">
+              <option>Full Year 2026</option>
+            </select>
+            <button class="btn" type="button" data-export="pdf">
+              Export PDF
+            </button>
+            <button class="btn btn-primary" type="button" data-export="excel">
+              Export Excel
+            </button>
+          </div>
+        </header>
+
+        <!-- Pending approvals -->
+        <section class="card">
+          <div class="card-header is-amber">
+            <div>
+              <h2 class="card-title">Pending Doctor Credential Approvals</h2>
+              <p class="card-sub">
+                Inspect submitted graduation &amp; board certificates before
+                granting clinical privileges.
+              </p>
+            </div>
+          </div>
+
+          <div id="pendingList">
+            <div
+              class="pending-row"
+              data-name="Dr. Tariq Al-Jamil, MD"
+              data-specialty="Ophthalmology"
+              data-years="12"
+              data-fee="140"
+            >
+              <div>
+                <div>
+                  <span class="cell-strong">Dr. Tariq Al-Jamil, MD</span>
+                  <span class="badge badge-specialty">Ophthalmology</span>
+                </div>
+                <div class="cell-muted">
+                  12 yrs exp • Fee: $140 • Vision Care Wing, Suite 202
+                </div>
+                <a class="inspect-link" href="#"
+                  >Inspect Certificates (Cairo_University_MBBCh_MD.pdf,
+                  Royal_College_Ophthalmology_FRCOphth.pdf)</a
+                >
+              </div>
+              <div class="pending-actions">
+                <button class="btn btn-success js-approve" type="button">
+                  Approve Physician
+                </button>
+                <button class="btn btn-danger-outline js-reject" type="button">
+                  Reject
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="pending-row"
+              data-name="Dr. Hannah Lindholm, DDS"
+              data-specialty="Dentistry"
+              data-years="9"
+              data-fee="115"
+            >
+              <div>
+                <div>
+                  <span class="cell-strong">Dr. Hannah Lindholm, DDS</span>
+                  <span class="badge badge-specialty">Dentistry</span>
+                </div>
+                <div class="cell-muted">
+                  9 yrs exp • Fee: $115 • Dental &amp; Oral Center, Suite 109
+                </div>
+                <a class="inspect-link" href="#"
+                  >Inspect Certificates (Gothenburg_Dental_Doctorate.pdf,
+                  National_Dental_Board_License.pdf)</a
+                >
+              </div>
+              <div class="pending-actions">
+                <button class="btn btn-success js-approve" type="button">
+                  Approve Physician
+                </button>
+                <button class="btn btn-danger-outline js-reject" type="button">
+                  Reject
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Active physicians -->
+        <section class="card">
+          <div class="card-header">
+            <h2 class="card-title">Active Clinic Physicians</h2>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Doctor Name</th>
+                  <th>Specialty</th>
+                  <th>Experience</th>
+                  <th>Fee</th>
+                  <th>Status</th>
+                  <th class="col-actions">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="activeDoctors">
+                <tr>
+                  <td class="cell-strong">Dr. Elena Harrison, MD, FACC</td>
+                  <td class="cell-link">Cardiology</td>
+                  <td>14 Years</td>
+                  <td class="cell-strong">$150</td>
+                  <td><span class="badge badge-active">Active</span></td>
+                  <td class="col-actions">
+                    <button class="btn btn-sm" type="button">
+                      Edit Profile
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-strong">Dr. Nadia Al-Mansoor, MD</td>
+                  <td class="cell-link">Dermatology</td>
+                  <td>10 Years</td>
+                  <td class="cell-strong">$130</td>
+                  <td><span class="badge badge-active">Active</span></td>
+                  <td class="col-actions">
+                    <button class="btn btn-sm" type="button">
+                      Edit Profile
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-strong">Dr. Julian Mercer, MD</td>
+                  <td class="cell-link">Pediatrics</td>
+                  <td>12 Years</td>
+                  <td class="cell-strong">$110</td>
+                  <td><span class="badge badge-active">Active</span></td>
+                  <td class="col-actions">
+                    <button class="btn btn-sm" type="button">
+                      Edit Profile
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-strong">Dr. Henrik Lindqvist, MD</td>
+                  <td class="cell-link">Orthopedics</td>
+                  <td>16 Years</td>
+                  <td class="cell-strong">$160</td>
+                  <td><span class="badge badge-active">Active</span></td>
+                  <td class="col-actions">
+                    <button class="btn btn-sm" type="button">
+                      Edit Profile
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-strong">Dr. Claire Beaumont, MD, PhD</td>
+                  <td class="cell-link">Neurology</td>
+                  <td>11 Years</td>
+                  <td class="cell-strong">$155</td>
+                  <td><span class="badge badge-active">Active</span></td>
+                  <td class="col-actions">
+                    <button class="btn btn-sm" type="button">
+                      Edit Profile
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-strong">Dr. Samuel Okafor, MD, FACP</td>
+                  <td class="cell-link">Internal Medicine</td>
+                  <td>15 Years</td>
+                  <td class="cell-strong">$120</td>
+                  <td><span class="badge badge-active">Active</span></td>
+                  <td class="col-actions">
+                    <button class="btn btn-sm" type="button">
+                      Edit Profile
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../Js/Main.js"></script>
+  </body>
+</html>

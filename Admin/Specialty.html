@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Specialty Management | MediCare Admin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Css/Style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ===== Sidebar ===== -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-logo">+</div>
+          <div>
+            <div class="brand-name">MediCare Admin</div>
+            <div class="brand-sub">Operations Console</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link" href="Analytics.html">Analytics &amp; Reports</a>
+          <a class="nav-link" href="Doctor.html"
+            >Doctor Management <span class="nav-badge is-amber">2</span></a
+          >
+          <a class="nav-link" href="Patient.html">Patient Management</a>
+          <a class="nav-link active" href="Specialty.html"
+            >Specialty Management</a
+          >
+          <a class="nav-link" href="All-Appointments.html">All Appointments</a>
+          <a class="nav-link" href="Clinic-Settings.html">Clinic Settings</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <a class="btn btn-block" href="../Index.html">Exit Admin Console</a>
+        </div>
+      </aside>
+
+      <!-- ===== Main content ===== -->
+      <main class="main">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">Medical Specialties Administration</h1>
+            <p class="page-sub">
+              MediCare Clinic Network • Real-time performance, revenue &amp;
+              medical staffing oversight
+            </p>
+          </div>
+          <div class="header-actions">
+            <select class="select" aria-label="Reporting period">
+              <option>Full Year 2026</option>
+            </select>
+            <button class="btn" type="button" data-export="pdf">
+              Export PDF
+            </button>
+            <button class="btn btn-primary" type="button" data-export="excel">
+              Export Excel
+            </button>
+          </div>
+        </header>
+
+        <section class="specialty-grid">
+          <!-- Add specialty -->
+          <div class="card">
+            <form class="card-body stack" id="specialtyForm">
+              <div>
+                <h2 class="card-title">Add Clinical Specialty</h2>
+                <p class="card-sub">
+                  Create a new medical department available for doctor
+                  assignment and patient booking.
+                </p>
+              </div>
+
+              <div class="field">
+                <label for="specialtyName">Specialty Name *</label>
+                <input
+                  class="input"
+                  id="specialtyName"
+                  type="text"
+                  placeholder="e.g., Endocrinology"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="specialtyDesc">Department Description *</label>
+                <textarea
+                  class="textarea"
+                  id="specialtyDesc"
+                  rows="3"
+                  placeholder="Hormonal, thyroid, and metabolic disorder care"
+                  required
+                ></textarea>
+              </div>
+
+              <p class="form-error" id="specialtyError" role="alert"></p>
+
+              <button class="btn btn-primary btn-lg btn-block" type="submit">
+                + Add Specialty
+              </button>
+            </form>
+          </div>
+
+          <!-- Specialties table -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Active Medical Specialties</h2>
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Specialty</th>
+                    <th>Description</th>
+                    <th>Doctors</th>
+                    <th class="col-actions">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="specialtyRows">
+                  <tr
+                    class="specialty-row"
+                    data-name="Cardiology"
+                    data-doctors="6"
+                  >
+                    <td class="cell-strong">Cardiology</td>
+                    <td class="cell-desc">
+                      Heart, vascular diagnostics, ECG &amp; hypertension care
+                    </td>
+                    <td class="doctor-count">6</td>
+                    <td class="col-actions">
+                      <button
+                        class="btn btn-sm btn-danger-outline js-delete"
+                        type="button"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                  <tr
+                    class="specialty-row"
+                    data-name="Dermatology"
+                    data-doctors="5"
+                  >
+                    <td class="cell-strong">Dermatology</td>
+                    <td class="cell-desc">
+                      Medical &amp; clinical skin, hair, and allergy diagnostics
+                    </td>
+                    <td class="doctor-count">5</td>
+                    <td class="col-actions">
+                      <button
+                        class="btn btn-sm btn-danger-outline js-delete"
+                        type="button"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                  <tr
+                    class="specialty-row"
+                    data-name="Pediatrics"
+                    data-doctors="7"
+                  >
+                    <td class="cell-strong">Pediatrics</td>
+                    <td class="cell-desc">
+                      Comprehensive infant, child, and adolescent medicine
+                    </td>
+                    <td class="doctor-count">7</td>
+                    <td class="col-actions">
+                      <button
+                        class="btn btn-sm btn-danger-outline js-delete"
+                        type="button"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                  <tr
+                    class="specialty-row"
+                    data-name="Orthopedics"
+                    data-doctors="4"
+                  >
+                    <td class="cell-strong">Orthopedics</td>
+                    <td class="cell-desc">
+                      Joint, spine, sports injury &amp; musculoskeletal surgery
+                    </td>
+                    <td class="doctor-count">4</td>
+                    <td class="col-actions">
+                      <button
+                        class="btn btn-sm btn-danger-outline js-delete"
+                        type="button"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                  <tr
+                    class="specialty-row"
+                    data-name="Neurology"
+                    data-doctors="4"
+                  >
+                    <td class="cell-strong">Neurology</td>
+                    <td class="cell-desc">
+                      Brain, nervous system, migraine &amp; neuromuscular care
+                    </td>
+                    <td class="doctor-count">4</td>
+                    <td class="col-actions">
+                      <button
+                        class="btn btn-sm btn-danger-outline js-delete"
+                        type="button"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                  <tr
+                    class="specialty-row"
+                    data-name="Internal Medicine"
+                    data-doctors="8"
+                  >
+                    <td class="cell-strong">Internal Medicine</td>
+                    <td class="cell-desc">
+                      Adult preventive medicine &amp; chronic disease management
+                    </td>
+                    <td class="doctor-count">8</td>
+                    <td class="col-actions">
+                      <button
+                        class="btn btn-sm btn-danger-outline js-delete"
+                        type="button"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                  <tr
+                    class="specialty-row"
+                    data-name="Ophthalmology"
+                    data-doctors="3"
+                  >
+                    <td class="cell-strong">Ophthalmology</td>
+                    <td class="cell-desc">
+                      Vision care, retinal diagnostics &amp; ocular surgery
+                    </td>
+                    <td class="doctor-count">3</td>
+                    <td class="col-actions">
+                      <button
+                        class="btn btn-sm btn-danger-outline js-delete"
+                        type="button"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                  <tr
+                    class="specialty-row"
+                    data-name="Dentistry"
+                    data-doctors="5"
+                  >
+                    <td class="cell-strong">Dentistry</td>
+                    <td class="cell-desc">
+                      Preventive, restorative &amp; oral maxillofacial care
+                    </td>
+                    <td class="doctor-count">5</td>
+                    <td class="col-actions">
+                      <button
+                        class="btn btn-sm btn-danger-outline js-delete"
+                        type="button"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id="specialtyEmpty" class="hidden">
+                    <td colspan="4" class="cell-muted">
+                      No specialties found. Add one using the form.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../Js/Main.js"></script>
+  </body>
+</html>

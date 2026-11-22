@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics &amp; Reports | MediCare Admin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Css/Style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ===== Sidebar ===== -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-logo">+</div>
+          <div>
+            <div class="brand-name">MediCare Admin</div>
+            <div class="brand-sub">Operations Console</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link active" href="Analytics.html"
+            >Analytics &amp; Reports</a
+          >
+          <a class="nav-link" href="Doctor.html"
+            >Doctor Management <span class="nav-badge is-amber">2</span></a
+          >
+          <a class="nav-link" href="Patient.html">Patient Management</a>
+          <a class="nav-link" href="Specialty.html">Specialty Management</a>
+          <a class="nav-link" href="All-Appointments.html">All Appointments</a>
+          <a class="nav-link" href="Clinic-Settings.html">Clinic Settings</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <a class="btn btn-block" href="../Index.html">Exit Admin Console</a>
+        </div>
+      </aside>
+
+      <!-- ===== Main content ===== -->
+      <main class="main">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">
+              Executive Analytics &amp; Clinical Reports
+            </h1>
+            <p class="page-sub">
+              MediCare Clinic Network • Real-time performance, revenue &amp;
+              medical staffing oversight
+            </p>
+          </div>
+          <div class="header-actions">
+            <select class="select" aria-label="Reporting period">
+              <option>Full Year 2026</option>
+            </select>
+            <button class="btn" type="button" data-export="pdf">
+              Export PDF
+            </button>
+            <button class="btn btn-primary" type="button" data-export="excel">
+              Export Excel
+            </button>
+          </div>
+        </header>
+
+        <!-- KPI cards -->
+        <section class="stats">
+          <div class="card stat">
+            <div class="stat-label">Total Appointments (YTD)</div>
+            <div class="stat-value">4,820</div>
+            <div class="stat-note is-green">+14.2% vs prior period</div>
+          </div>
+          <div class="card stat">
+            <div class="stat-label">Gross Clinical Revenue</div>
+            <div class="stat-value is-blue">$648,900</div>
+            <div class="stat-note is-green">+18.6% YoY growth</div>
+          </div>
+          <div class="card stat">
+            <div class="stat-label">Completion Rate</div>
+            <div class="stat-value">91.8%</div>
+            <div class="stat-note">4.1% cancelled • 4.1% rescheduled</div>
+          </div>
+          <div class="card stat">
+            <div class="stat-label">Active Medical Staff</div>
+            <div class="stat-value">36 Doctors</div>
+            <div class="stat-note is-amber">2 pending credential review</div>
+          </div>
+        </section>
+
+        <!-- Charts row 1 -->
+        <section class="charts-top">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">
+                Monthly Appointments &amp; Revenue Performance
+              </h2>
+              <p class="card-sub">
+                Completed vs. Scheduled consultation volume across clinical
+                departments
+              </p>
+              <div class="chart-wrap"><canvas id="monthlyChart"></canvas></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">Most Requested Specialties</h2>
+              <p class="card-sub">Share of patient bookings by department</p>
+              <div class="chart-wrap">
+                <canvas id="specialtyChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Charts row 2 -->
+        <section class="charts-bottom">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">
+                Most Popular Doctors (Consultation Volume &amp; Revenue)
+              </h2>
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Physician</th>
+                    <th>Specialty</th>
+                    <th>Visits</th>
+                    <th class="num-right">Generated Revenue</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="cell-strong">Dr. Elena Harrison, MD</td>
+                    <td class="cell-sub">Cardiology</td>
+                    <td class="cell-strong">412</td>
+                    <td class="num-right cell-money">$61,800</td>
+                  </tr>
+                  <tr>
+                    <td class="cell-strong">Dr. Julian Mercer, MD</td>
+                    <td class="cell-sub">Pediatrics</td>
+                    <td class="cell-strong">389</td>
+                    <td class="num-right cell-money">$42,790</td>
+                  </tr>
+                  <tr>
+                    <td class="cell-strong">Dr. Nadia Al-Mansoor, MD</td>
+                    <td class="cell-sub">Dermatology</td>
+                    <td class="cell-strong">354</td>
+                    <td class="num-right cell-money">$46,020</td>
+                  </tr>
+                  <tr>
+                    <td class="cell-strong">Dr. Henrik Lindqvist, MD</td>
+                    <td class="cell-sub">Orthopedics</td>
+                    <td class="cell-strong">318</td>
+                    <td class="num-right cell-money">$50,880</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">Appointment Status Statistics</h2>
+              <p class="card-sub">
+                Distribution across all outpatient bookings
+              </p>
+              <div class="chart-wrap chart-short">
+                <canvas id="statusChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Chart.js (needs internet on first load) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="../Js/Main.js"></script>
+  </body>
+</html>

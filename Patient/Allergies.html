@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Allergies | MediCare</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Css/Style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ===== Sidebar ===== -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-logo is-blue">+</div>
+          <div>
+            <div class="brand-name">MediCare Patient</div>
+            <div class="brand-sub">Health Portal</div>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="avatar">LA</div>
+          <div>
+            <div class="profile-name">Liam Anderson</div>
+            <div class="profile-meta">ID: #PT-20489 • Age 34</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link" href="Overview.html">Overview</a>
+          <a class="nav-link" href="Book-appointment.html">Book Appointment</a>
+          <a class="nav-link" href="MyAppointments.html">My Appointments</a>
+          <a class="nav-link" href="Medical-History.html">Medical History</a>
+          <a class="nav-link active" href="Allergies.html">Allergies</a>
+          <a class="nav-link" href="Medical-Records.html">Medical Records</a>
+          <a class="nav-link" href="Prescriptions.html"
+            >Prescriptions <span class="nav-badge">2</span></a
+          >
+          <a class="nav-link" href="Profile-Settings.html">Profile Settings</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <a class="btn btn-block" href="../Index.html"
+            >Sign Out to Public Site</a
+          >
+        </div>
+      </aside>
+
+      <!-- ===== Main content ===== -->
+      <main class="main" id="allergyPage">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">Allergy &amp; Reaction Management</h1>
+            <p class="page-sub">
+              Welcome back, Liam Anderson • Blood Type: O+ • Primary Clinic:
+              Main Pavilion
+            </p>
+          </div>
+          <div class="header-actions">
+            <a class="btn btn-primary" href="Book-appointment.html"
+              >+ New Appointment</a
+            >
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">
+                Allergy &amp; Adverse Reaction Registry
+              </h2>
+              <p class="card-sub">
+                Select from clinical allergen categories or record custom
+                allergies for immediate doctor visibility.
+              </p>
+            </div>
+            <input
+              class="input allergy-search"
+              id="allergySearch"
+              type="text"
+              placeholder="Search allergens (e.g. Latex, Penicillin).."
+            />
+          </div>
+
+          <div class="card-body">
+            <!-- Active allergies -->
+            <div class="alert-warning allergy-active">
+              <div class="alert-title">
+                Confirmed Active Patient Allergies (<span id="activeCount"
+                  >0</span
+                >)
+              </div>
+              <div class="chip-list" id="activeAllergies"></div>
+            </div>
+
+            <!-- Categories (rendered by Main.js) -->
+            <div class="allergy-categories" id="allergyCategories"></div>
+
+            <!-- Custom allergy + sync -->
+            <div class="allergy-footer">
+              <div class="custom-add">
+                <input
+                  class="input"
+                  id="customAllergy"
+                  type="text"
+                  placeholder="Add custom allergy (e.g., Sulfa drugs, Kiwi)..."
+                />
+                <button class="btn btn-lg" id="addCustomBtn" type="button">
+                  + Add
+                </button>
+              </div>
+              <button class="btn btn-primary btn-lg" id="syncBtn" type="button">
+                Confirm &amp; Sync Allergy Profile
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../Js/Main.js"></script>
+  </body>
+</html>

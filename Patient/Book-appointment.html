@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment | MediCare</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../Css/Style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- ===== Sidebar ===== -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo is-blue">+</div>
+        <div>
+          <div class="brand-name">MediCare Patient</div>
+          <div class="brand-sub">Health Portal</div>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <div class="avatar">LA</div>
+        <div>
+          <div class="profile-name">Liam Anderson</div>
+          <div class="profile-meta">ID: #PT-20489 • Age 34</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-link" href="Overview.html">Overview</a>
+        <a class="nav-link active" href="Book-appointment.html">Book Appointment</a>
+        <a class="nav-link" href="MyAppointments.html">My Appointments</a>
+        <a class="nav-link" href="Medical-History.html">Medical History</a>
+        <a class="nav-link" href="Allergies.html">Allergies</a>
+        <a class="nav-link" href="Medical-Records.html">Medical Records</a>
+        <a class="nav-link" href="Prescriptions.html">Prescriptions <span class="nav-badge">2</span></a>
+        <a class="nav-link" href="Profile-Settings.html">Profile Settings</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="btn btn-block" href="../Index.html">Sign Out to Public Site</a>
+      </div>
+    </aside>
+
+    <!-- ===== Main content ===== -->
+    <main class="main" id="bookingPage">
+
+      <header class="page-header">
+        <div>
+          <h1 class="page-title">Book Specialist Appointment</h1>
+          <p class="page-sub">Welcome back, Liam Anderson • Blood Type: O+ • Primary Clinic: Main Pavilion</p>
+        </div>
+        <div class="header-actions">
+          <a class="btn btn-primary" href="Book-appointment.html">+ New Appointment</a>
+        </div>
+      </header>
+
+      <section class="booking-grid">
+
+        <!-- Step 1: doctor -->
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">1. Select Specialist</h2>
+
+            <div class="filters">
+              <input class="input" id="doctorSearch" type="text" placeholder="Search doctor...">
+              <select class="select" id="specialtyFilter">
+                <option value="all">All Specialties</option>
+                <option>Cardiology</option>
+                <option>Dermatology</option>
+                <option>Pediatrics</option>
+                <option>Orthopedics</option>
+                <option>Neurology</option>
+                <option>Internal Medicine</option>
+              </select>
+            </div>
+
+            <div class="doctor-list" id="doctorList"></div>
+          </div>
+        </div>
+
+        <!-- Step 2: date & time -->
+        <div class="card">
+          <div class="card-body">
+            <div class="booking-head">
+              <div>
+                <h2 class="card-title">2. Select Appointment Date &amp; Time</h2>
+                <p class="selected-line" id="selectedLine"></p>
+              </div>
+              <span class="pill">November 2026</span>
+            </div>
+            <hr class="divider">
+
+            <div class="section-label">Available Dates</div>
+            <div class="date-list" id="dateList"></div>
+
+            <div class="section-label slots-label">
+              <span>Available Time Slots</span>
+              <span class="hint">Try <strong>10:00 AM</strong> on <strong>Nov 20</strong> to test Conflict Detection</span>
+            </div>
+            <div class="slot-list" id="slotList"></div>
+
+            <div class="summary" id="summaryBox">
+              <div>
+                <div class="cell-muted">Appointment Summary</div>
+                <div class="summary-text" id="summaryText"></div>
+              </div>
+              <button class="btn btn-primary btn-lg" id="confirmBtn" type="button">Confirm Appointment</button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <script src="../Js/Main.js"></script>
+</body>
+</html>
